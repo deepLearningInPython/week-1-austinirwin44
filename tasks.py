@@ -1,4 +1,4 @@
-import numpy
+import numpy as np
 
 # Follow the tasks below to practice basic Python concepts.
 # Write your code in between the dashed lines.
@@ -13,9 +13,11 @@ import numpy
 # Your code here:
 # -----------------------------------------------
 
-def step
-asdf
-
+def step(x):
+    if x > 0:
+        return 1
+    else:
+        return -1
 
 # -----------------------------------------------
 
@@ -29,8 +31,9 @@ asdf
 
 # Your code here:
 # -----------------------------------------------
-def ReLu
 
+def ReLu(array, cutoff = 0):
+    return np.maximum(array, cutoff)
 
 # -----------------------------------------------
 
@@ -45,7 +48,16 @@ def ReLu
 # Your code here:
 # -----------------------------------------------
 
-def neural_net_layer
-
+def neural_net_layer(array_1, array_2):
+    """ 
+    Multiply a two-dimensional array by a one-dimensional array and apply the ReLu function thereafter.
+    """
+    if array_1.shape[1] != array_2.shape[0]:
+        raise ValueError("The number of columns in array_1 must equal the number of elements in array_2")
+    result = np.dot(array_1, array_2)
+    ReLu_result = ReLu(result)
+    return ReLu_result
 
 # ------------------------------------------
+
+
